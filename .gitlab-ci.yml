@@ -1,0 +1,19 @@
+stages:
+  - test
+  - build
+
+backend-test:
+  stage: test
+  image: node:22
+  script:
+    - cd backend
+    - npm ci
+    - npm test
+
+frontend-build:
+  stage: build
+  image: node:22
+  script:
+    - cd frontend
+    - npm ci
+    - npm run build
